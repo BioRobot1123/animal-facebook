@@ -1,6 +1,6 @@
 const ROUTES = {
   MAIN: '/',
-  USER: 'user/:id',
+  USER: '/user/:id',
 };
 
 export default ROUTES;

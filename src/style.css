@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 1.6rem;
+}
+
+section {
+  margin: 0 7.6rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  column-gap: 2.5rem;
+  row-gap: 2rem;
+  margin: 1rem 1rem;
+}
+
+.card {
+  border: 1px solid #b9b4c3;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.text {
+  margin: 0.8rem 0 0.5rem 0.8rem;
+}
+
+.card span {
+  display: block;
+  padding: 0 0 0.5rem 1rem;
+}
+
+.user-container {
+  border: 1px solid #b9b4c3;
+  position: relative;
+}
+
+.user-box {
+  margin: 2.5rem 1.8rem 8rem 1.8rem;
+  min-height: 20rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-img {
+  width: 26.7rem;
+  margin-right: 2rem;
+}
+
+.user-img img {
+  width: 100%;
+}
+
+.user-info {
+  width: 67rem;
+  height: 100%;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.user-address {
+  width: 19rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.user-info fieldset,
+.user-address fieldset {
+  width: 100%;
+}
+
+.user-info fieldset > legend,
+.user-address fieldset > legend {
+  margin-left: 1rem;
+}
+
+.user-description {
+  padding: 0.5rem 0 2rem 1rem;
+}
+
+.user-details {
+  padding: 0 0 1rem 1rem;
+}
+
+.company {
+  padding: 1rem;
+}
+
+.user-container h2 {
+  margin: 8rem 0 0 1rem;
+}
+
+.spans {
+  margin: 0 1.8rem;
+}
+
+.lds-loading {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lds-loading div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #006400;
+  animation: lds-loading 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-loading div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-loading div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.lds-loading div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+@keyframes lds-loading {
+  0% {
+    top: 8px;
+    height: 68px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

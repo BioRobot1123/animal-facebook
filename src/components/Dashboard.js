@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 } from 'uuid';
 import Card from './Card';
+import Loading from './Loading';
 
 let initialRender = true;
 
-function Dashboard() {
+function Dashboard({ url }) {
   const [page, setPage] = useState(1);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,11 +16,8 @@ function Dashboard() {
     setLoading(true);
     setError(false);
     axios
-      .get(
-        `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${page}/20`
-      )
+      .get(`${url}/${page}/20`)
       .then((res) => {
-        console.log(res);
         setUsers((prev) => {
           return [...prev, ...res.data.list];
         });
@@ -39,18 +37,13 @@ function Dashboard() {
 
   useEffect(() => {
     if (initialRender) {
+      window.addEventListener('scroll', handleScroll);
       initialRender = false;
       return;
     }
+
     loadUsers();
   }, [page]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-  }, []);
-
-  console.log(page);
-  console.log(users);
 
   return (
     <>
@@ -59,8 +52,8 @@ function Dashboard() {
           <Card key={v4()} user={item} />
         ))}
       </div>
-      {loading && <h2>Loading...</h2>}
-      {error && <h1>{error}</h1>}
+      {loading && <Loading />}
+      {error && <h1 className="center">{error}</h1>}
     </>
   );
 }
